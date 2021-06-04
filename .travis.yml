@@ -16,4 +16,5 @@ script:
   - docker tag simple-node fr3d3rico/simple-node:1.0.0
 
 after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push fr3d3rico/simple-node
